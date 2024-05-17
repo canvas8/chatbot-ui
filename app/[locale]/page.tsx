@@ -3,8 +3,8 @@
 import { ChatbotUISVG } from "@/components/icons/chatbotui-svg"
 import { IconArrowRight } from "@tabler/icons-react"
 import { useTheme } from "next-themes"
-import Link from "next/link"
 import { redirect, RedirectType } from "next/navigation"
+import { Button } from "@/components/ui/button"
 
 export default function HomePage({
   searchParams
@@ -20,6 +20,10 @@ export default function HomePage({
     redirect("/login?message=Email is not allowed", RedirectType.replace)
   }
 
+  const goToLogin = () => {
+    window.location.href = "/login"
+  }
+
   return (
     <div className="flex size-full flex-col items-center justify-center">
       <div>
@@ -28,13 +32,13 @@ export default function HomePage({
 
       <div className="mt-2 text-4xl font-bold">Chatbot UI</div>
 
-      <Link
-        className="mt-4 flex w-[200px] items-center justify-center rounded-md bg-blue-500 p-2 font-semibold"
-        href="/login"
+      <Button
+        className="mt-4 flex w-[200px] items-center justify-center rounded-md bg-blue-500 p-2 font-semibold text-white"
+        onClick={goToLogin}
       >
         Start Chatting
         <IconArrowRight className="ml-1" size={20} />
-      </Link>
+      </Button>
     </div>
   )
 }
