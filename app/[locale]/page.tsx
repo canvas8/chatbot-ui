@@ -4,9 +4,21 @@ import { ChatbotUISVG } from "@/components/icons/chatbotui-svg"
 import { IconArrowRight } from "@tabler/icons-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
+import { redirect, RedirectType } from "next/navigation"
 
-export default function HomePage() {
+export default function HomePage({
+  searchParams
+}: {
+  searchParams: { error_description: string }
+}) {
   const { theme } = useTheme()
+
+  if (
+    searchParams.error_description ==
+    "Database error loading user after sign-up"
+  ) {
+    redirect("/login?message=Email is not allowed", RedirectType.replace)
+  }
 
   return (
     <div className="flex size-full flex-col items-center justify-center">
