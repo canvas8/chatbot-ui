@@ -99,12 +99,8 @@ export const fetchOpenRouterModels = async () => {
 
     const { data } = await response.json()
 
-    const openRouterModels = data.map(
-      (model: {
-        id: string
-        name: string
-        context_length: number
-      }): OpenRouterLLM => ({
+    const openRouterModels: OpenRouterLLM[] = data.map(
+      (model: { id: string; name: string; context_length: number }) => ({
         modelId: model.id as LLMID,
         modelName: model.id,
         provider: "openrouter",
@@ -115,8 +111,8 @@ export const fetchOpenRouterModels = async () => {
       })
     )
 
-    return openRouterModels.filter((model: { id: string }) =>
-      acceptedLlmModels.includes(model.id)
+    return openRouterModels.filter(model =>
+      acceptedLlmModels.includes(model.modelId)
     )
   } catch (error) {
     console.error("Error fetching Open Router models: " + error)
