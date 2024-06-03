@@ -81,6 +81,16 @@ export const fetchOllamaModels = async () => {
 
 export const fetchOpenRouterModels = async () => {
   try {
+    // accepting only followings because of this ticket
+    // https://linear.app/canvas8/issue/FED-6101/c8i-hide-some-llms
+
+    const acceptedLlmModels = [
+      "google/gemini-flash-1.5",
+      "google/gemini-pro-1.5",
+      "mistralai/mixtral-8x22b-instruct:nitro",
+      "meta-llama/llama-3-70b-instruct:nitro"
+    ]
+
     const response = await fetch("https://openrouter.ai/api/v1/models")
 
     if (!response.ok) {
@@ -105,7 +115,9 @@ export const fetchOpenRouterModels = async () => {
       })
     )
 
-    return openRouterModels
+    return openRouterModels.filter((model: { id: string }) =>
+      acceptedLlmModels.includes(model.id)
+    )
   } catch (error) {
     console.error("Error fetching Open Router models: " + error)
     toast.error("Error fetching Open Router models: " + error)
