@@ -87,7 +87,7 @@ export const fetchOpenRouterModels = async () => {
     const acceptedLlmModels = [
       // "google/gemini-flash-1.5",
       // "google/gemini-pro-1.5",
-      "mistralai/mixtral-8x22b-instruct:nitro",
+      "mistralai/mixtral-8x22b-instruct",
       "meta-llama/llama-3-70b-instruct:nitro"
     ]
 
