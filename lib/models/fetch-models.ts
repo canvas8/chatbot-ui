@@ -85,8 +85,8 @@ export const fetchOpenRouterModels = async () => {
     // https://linear.app/canvas8/issue/FED-6101/c8i-hide-some-llms
 
     const acceptedLlmModels = [
-      "google/gemini-flash-1.5",
-      "google/gemini-pro-1.5",
+      // "google/gemini-flash-1.5",
+      // "google/gemini-pro-1.5",
       "mistralai/mixtral-8x22b-instruct:nitro",
       "meta-llama/llama-3-70b-instruct:nitro"
     ]
