@@ -6,7 +6,7 @@ const ANTHROPIC_PLATFORM_LINK =
 // Anthropic Models (UPDATED 03/13/24) -----------------------------
 
 // Claude 2 (UPDATED 12/21/23)
-const CLAUDE_2: LLM = {
+/*const CLAUDE_2: LLM = {
   modelId: "claude-2.1",
   modelName: "Claude 2",
   provider: "anthropic",
@@ -19,7 +19,7 @@ const CLAUDE_2: LLM = {
     inputCost: 8,
     outputCost: 24
   }
-}
+}*/
 
 // Claude Instant (UPDATED 12/21/23)
 const CLAUDE_INSTANT: LLM = {
@@ -86,7 +86,9 @@ const CLAUDE_3_OPUS: LLM = {
 }
 
 export const ANTHROPIC_LLM_LIST: LLM[] = [
-  CLAUDE_2,
+  // hiding claude 2 because of this ticket
+  // https://linear.app/canvas8/issue/FED-5972/c8i-set-default-llm-to-claude-sonnet-etc
+  // CLAUDE_2,
   CLAUDE_INSTANT,
   CLAUDE_3_HAIKU,
   CLAUDE_3_SONNET,
