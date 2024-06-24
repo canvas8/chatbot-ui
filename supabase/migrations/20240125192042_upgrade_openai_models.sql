@@ -1,6 +1,10 @@
 -- WORKSPACES
 
 UPDATE workspaces
+SET default_model = 'claude-3-5-sonnet-20240620'
+WHERE default_model = 'gpt-4o';
+
+UPDATE workspaces
 SET default_model = 'gpt-4o'
 WHERE default_model = 'gpt-4-turbo-preview';
 
@@ -13,6 +17,10 @@ SET default_model = 'gpt-3.5-turbo'
 WHERE default_model = 'gpt-3.5-turbo-1106';
 
 -- PRESETS
+
+UPDATE presets
+SET model = 'claude-3-5-sonnet-20240620'
+WHERE model = 'gpt-4o';
 
 UPDATE presets
 SET model = 'gpt-4o'
@@ -29,6 +37,10 @@ WHERE model = 'gpt-3.5-turbo-1106';
 -- ASSISTANTS
 
 UPDATE assistants
+SET model = 'claude-3-5-sonnet-20240620'
+WHERE model = 'gpt-4o';
+
+UPDATE assistants
 SET model = 'gpt-4o'
 WHERE model = 'gpt-4-turbo-preview';
 
@@ -43,6 +55,10 @@ WHERE model = 'gpt-3.5-turbo-1106';
 -- CHATS
 
 UPDATE chats
+SET model = 'claude-3-5-sonnet-20240620'
+WHERE model = 'gpt-4o';
+
+UPDATE chats
 SET model = 'gpt-4o'
 WHERE model = 'gpt-4-turbo-preview';
 
@@ -55,6 +71,10 @@ SET model = 'gpt-3.5-turbo'
 WHERE model = 'gpt-3.5-turbo-1106';
 
 -- MESSAGES
+
+UPDATE messages
+SET model = 'claude-3-5-sonnet-20240620'
+WHERE model = 'gpt-4o';
 
 UPDATE messages
 SET model = 'gpt-4-turbo-preview'
@@ -109,7 +129,7 @@ BEGIN
         TRUE,
         'Home',
         4096,
-        'gpt-4o', -- Updated default model
+        'claude-3-5-sonnet-20240620', -- Updated default model
         'You are a friendly, helpful AI assistant.',
         0.5,
         'My home workspace.',
